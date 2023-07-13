@@ -17,7 +17,7 @@ const LoginForm = () => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-    // Здесь можно добавить логику для отправки данных на сервер
+    // логика для отправки данных на сервак >>
   };
 
   return (

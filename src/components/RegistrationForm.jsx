@@ -29,7 +29,7 @@ const RegistrationForm = () => {
     console.log("Email:", email);
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
-    // Логика для отправки данных на сервак >>>
+    // логика для отправки данных на сервак >>
   };
 
   return (
