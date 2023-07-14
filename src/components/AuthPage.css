@@ -9,6 +9,7 @@
   width: 200px;
   height: auto;
   margin-bottom: 20px;
+  pointer-events: none;
 }
 
 .auth-tabs {
