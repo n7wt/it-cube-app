@@ -4,8 +4,8 @@ import "./RegistrationForm.css";
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,21 +15,21 @@ const RegistrationForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
   };
 
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Username:", username);
     console.log("Email:", email);
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
-    // логика для отправки данных на сервак >>
+    console.log("Username:", username);
+    // логика для отправки данных на сервер
   };
 
   return (

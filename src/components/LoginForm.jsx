@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
+import Modal from "./Modal";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [modalContent, setModalContent] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,9 +17,31 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (email !== "salanamir0@gmail.com" && email !== "newt") {
+      setModalContent({
+        type: "error",
+        message: "Вы ввели неверный логин или почту",
+      });
+      return;
+    }
+
+    if (password !== "12345") {
+      setModalContent({
+        type: "error",
+        message: "Вы ввели неверный пароль",
+      });
+      return;
+    }
+
+    setModalContent({
+      type: "success",
+      message: "Успешная авторизация",
+    });
+
     console.log("Email:", email);
     console.log("Password:", password);
-    // логика для отправки данных на сервак >>
+    // логика для отправки данных на сервер
   };
 
   return (
@@ -26,10 +50,10 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="login-form-field">
           <label htmlFor="email" className="login-form-label">
-            Email
+            Логин / Email
           </label>
           <input
-            type="email"
+            type="text"
             id="email"
             value={email}
             onChange={handleEmailChange}
@@ -54,6 +78,13 @@ const LoginForm = () => {
           Войти
         </button>
       </form>
+      {modalContent && (
+        <Modal
+          type={modalContent.type}
+          message={modalContent.message}
+          onClose={() => setModalContent(null)}
+        />
+      )}
     </div>
   );
 };
